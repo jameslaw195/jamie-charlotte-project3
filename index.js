@@ -20,8 +20,9 @@ async function fetchCharacters() {
       const data = await response.json();
       // console.log(data);
       data.results.forEach((character) => {
-        const characterCard = document.createElement("li");
-        characterCard.classList.add("card");
+        // const characterCard = document.createElement("li");
+        // characterCard.classList.add("card");
+        const characterCard = createCharacterCard(character);
         cardContainer.append(characterCard);
         console.log(characterCard);
       });
