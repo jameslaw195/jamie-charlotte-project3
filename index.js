@@ -22,6 +22,7 @@ async function fetchCharacters() {
     const data = await response.json();
 
     data.results.forEach((character) => {
+      console.log(character)
       const carCard = createCharacterCard(character);
       cardContainer.append(carCard);
     });
