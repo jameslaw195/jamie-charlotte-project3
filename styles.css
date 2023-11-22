@@ -19,6 +19,9 @@ body {
   font-family: var(--font-family);
   color: var(--color-primary);
   padding: 20px;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
 }
 
 main {
