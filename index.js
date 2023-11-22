@@ -22,7 +22,6 @@ async function fetchCharacters() {
   );
   if (response.ok) {
     const data = await response.json();
-    const currentPage = page;
     maxPage = data.info.pages;
     data.results.forEach((character) => {
       const carCard = createCharacterCard(character);
