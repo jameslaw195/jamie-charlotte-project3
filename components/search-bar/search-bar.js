@@ -1,4 +1,4 @@
-export function createSearchBar() {
+export function createSearchBar(onSubmit) {
   const searchBar = document.createElement("form");
   searchBar.classList.add("search-bar");
   searchBar.setAttribute("data-js", "search-bar");
@@ -17,22 +17,7 @@ export function createSearchBar() {
     />
     </button>`;
 
-  searchBar.addEventListener("submit", (event) => {
-    event.preventDefault();
-    searchQuery = event.target.elements.query.value;
-    fetchCharacters().then(updateNavigation);
-  });
+  searchBar.addEventListener("submit", onSubmit);
 
   return searchBar;
 }
-
-import { createSearchBar } from "./components/search-bar/search-bar.js";
-
-import { createNextButton } from "./components/nav-button/nav-button.js";
-import { createPrevButton } from "./components/nav-button/nav-button.js";
-import { createPagination } from "./components/nav-pagination/nav-pagination.js";
-
-searchBarContainer.append(searchBar);
-navigation.append(prevButton);
-navigation.append(pagination);
-navigation.append(nextButton);
