@@ -4,6 +4,8 @@
 .card {
   width: 300px;
   background-color: var(--color-secondary);
+  border-radius: 30px;
+  margin-bottom: 12px;
 }
 
 .card__info {
@@ -11,13 +13,25 @@
   grid-template-columns: auto 1fr;
 }
 .card__content {
-  padding: 10px 20px 20px;
+  padding: 20px 25px 25px;
   display: grid;
   gap: 20px;
 }
 
 .card__info-description {
   text-align: right;
+}
+
+.card__image-container {
+  display: grid;
+  justify-items: center;
+}
+
+.card__image {
+  border-radius: 30px;
+  /* visibility: hidden; */
+  width: 250px;
+  margin-top: 20px;
 }
 
 li {
