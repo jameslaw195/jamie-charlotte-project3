@@ -23,7 +23,7 @@ async function fetchCharacters() {
         const characterCard = document.createElement("li");
         characterCard.classList.add("card");
         cardContainer.append(characterCard);
-        console.log(cardContainer);
+        console.log(characterCard);
       });
     } else {
       console.log("Bad Response");
