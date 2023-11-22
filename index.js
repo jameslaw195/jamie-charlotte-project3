@@ -16,21 +16,21 @@ const page = 1;
 const searchQuery = "";
 
 async function fetchCharacters() {
-  try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    if (response.ok) {
-      const data = await response.json();
+  // try {
+  const response = await fetch("https://rickandmortyapi.com/api/character");
+  if (response.ok) {
+    const data = await response.json();
 
-      data.results.forEach((character) => {
-        const carCard = createCharacterCard(character);
-        cardContainer.append(carCard);
-      });
-    } else {
-      console.log("Bad Response");
-    }
-  } catch (error) {
-    console.log("An Error occured", error);
+    data.results.forEach((character) => {
+      const carCard = createCharacterCard(character);
+      cardContainer.append(carCard);
+    });
+  } else {
+    console.log("Bad Response");
   }
+  // } catch (error) {
+  //   console.log("An Error occured", error);
+  // }
 }
 
 fetchCharacters();
