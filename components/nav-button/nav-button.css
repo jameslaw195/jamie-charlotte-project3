@@ -1,8 +1,9 @@
 .button {
   border: none;
+  border-radius: 20px;
 }
 
 .button:hover {
-  cursor: pointer;
+  cursor: pointer !important;
   background-color: var(--color-secondary);
 }

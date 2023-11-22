@@ -1,5 +1,6 @@
 .search-bar-container {
   width: 300px;
+  cursor: auto !important;
 }
 
 .search-bar {

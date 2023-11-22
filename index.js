@@ -1,9 +1,6 @@
 import { createCharacterCard } from "./components/card/card.js";
 import { createSearchBar } from "./components/search-bar/search-bar.js";
-import {
-  createPrevButton,
-  createNextButton,
-} from "./components/nav-button/nav-button.js";
+import { createNavButton } from "./components/nav-button/nav-button.js";
 import { createPagination } from "./components/nav-pagination/nav-pagination.js";
 
 const searchBarContainer = document.querySelector(
@@ -19,7 +16,7 @@ searchBarContainer.append(
 const searchBar = document.querySelector('[data-js="search-bar"]');
 const navigation = document.querySelector('[data-js="navigation"]');
 navigation.append(
-  createPrevButton(() => {
+  createNavButton("prev", () => {
     cardContainer.innerHTML = "";
     page--;
     if (page < 1) {
@@ -28,7 +25,7 @@ navigation.append(
     fetchCharacters();
   }),
   createPagination(),
-  createNextButton(() => {
+  createNavButton("next", () => {
     cardContainer.innerHTML = "";
     page++;
     if (page > maxPage) {
