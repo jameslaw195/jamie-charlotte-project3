@@ -22,7 +22,6 @@ async function fetchCharacters() {
     const data = await response.json();
 
     data.results.forEach((character) => {
-      console.log(character)
       const carCard = createCharacterCard(character);
       cardContainer.append(carCard);
     });
@@ -35,3 +34,9 @@ async function fetchCharacters() {
 }
 
 fetchCharacters();
+
+searchBar.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formElements = e.target.elements;
+  searchQuery = formElements.query.value;
+});
