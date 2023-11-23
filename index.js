@@ -2,6 +2,7 @@ import { createCharacterCard } from "./components/card/card.js";
 import { createSearchBar } from "./components/search-bar/search-bar.js";
 import { createNavButton } from "./components/nav-button/nav-button.js";
 import { createPagination } from "./components/nav-pagination/nav-pagination.js";
+import { createErrorMessage } from "./components/error404/error.js";
 
 // States
 let maxPage = 1;
@@ -47,12 +48,12 @@ const cardContainer = document.querySelector('[data-js="card-container"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
+const body = document.querySelector('[data-js="body"]');
 
 async function fetchCharacters(page, searchQuery = "") {
   cardContainer.innerHTML = "";
-  const response = await fetch(
-    `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`
-  );
+  let fetchUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`;
+  const response = await fetch(fetchUrl);
   if (response.ok) {
     const data = await response.json();
     maxPage = data.info.pages;
@@ -60,16 +61,20 @@ async function fetchCharacters(page, searchQuery = "") {
       const carCard = createCharacterCard(character);
       cardContainer.append(carCard);
     });
+    updateNavigation();
   } else {
     console.log("Bad Response");
     maxPage = 1;
     page = 1;
-    updateNavigation();
+    pagination.textContent = `${page} / ${maxPage}`;
+    const errorCard = createErrorMessage();
+    body.append(errorCard);
+    body.classList.add("error");
+    navigation.classList.add("hidden");
   }
-  updateNavigation();
 }
 
-fetchCharacters(page);
+fetchCharacters();
 
 function updateNavigation() {
   pagination.textContent = `${page} / ${maxPage}`;

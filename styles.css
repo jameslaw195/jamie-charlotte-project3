@@ -2,6 +2,7 @@
 @import "components/search-bar/search-bar.css";
 @import "components/nav-button/nav-button.css";
 @import "components/nav-pagination/nav-pagination.css";
+@import "components/error404/error.css";
 
 * {
   box-sizing: border-box;
@@ -36,4 +37,8 @@ main {
   padding: 10px 0;
   width: 80vw;
   min-width: 300px;
+}
+
+.hidden {
+  visibility: hidden;
 }
