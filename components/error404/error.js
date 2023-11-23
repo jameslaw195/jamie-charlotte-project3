@@ -6,7 +6,7 @@ export function createErrorMessage() {
     <div class="space"></div>
         <div class="wrapper">
             <div class="img-wrapper">
-                <span>44</span>
+                <span>4o4</span>
             </div>
             <p>The page you are trying to search has been <br> moved to another universe.</p>
             <a href="./index.html" class="errorbutton">GET ME HOME</a>

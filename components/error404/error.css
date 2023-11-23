@@ -15,7 +15,7 @@ body.error {
 .wrapper {
   position: absolute;
   margin: auto;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   left: 0;
   right: 0;
@@ -30,8 +30,7 @@ body.error {
     position: relative;
     color: #fff;
     font-weight: 900;
-    font-size: 15em;
-    display: block;
+    font-size: 11em;
     overflow: hidden;
     width: 90%;
     height: max-content;
