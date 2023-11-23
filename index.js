@@ -61,10 +61,13 @@ async function fetchCharacters() {
   updateNavigation();
 }
 
+
+
+fetchCharacters();
+  
 function updateNavigation() {
   pagination.textContent = `${page} / ${maxPage}`;
   prevButton.disabled = page == 1;
   nextButton.disabled = page == maxPage;
 }
 
-fetchCharacters();
