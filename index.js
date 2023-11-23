@@ -31,7 +31,7 @@ navigation.append(
     if (page < 1) {
       page = 1;
     }
-    fetchCharacters();
+    fetchCharacters(page, searchQuery);
   }),
   createPagination(),
   createNavButton("next", () => {
@@ -40,7 +40,7 @@ navigation.append(
     if (page > maxPage) {
       page = maxPage;
     }
-    fetchCharacters();
+    fetchCharacters(page, searchQuery);
   })
 );
 const cardContainer = document.querySelector('[data-js="card-container"]');
