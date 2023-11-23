@@ -12,17 +12,11 @@ let searchQuery = "";
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
-searchBarContainer.append(
-  createSearchBar((event) => {
-    event.preventDefault();
-    searchQuery = event.target.elements.query.value;
-
-    fetchCharacters(page, searchQuery);
-    return searchQuery;
-  })
-);
+searchBarContainer.append(createSearchBar(onSearch));
 
 const searchBar = document.querySelector('[data-js="search-bar"]');
+const searchBarInput = document.querySelector('[data-js="search-bar-input"]');
+searchBarInput.addEventListener("keyup", onSearch);
 
 const navigation = document.querySelector('[data-js="navigation"]');
 navigation.append(
@@ -49,9 +43,13 @@ const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 const body = document.querySelector('[data-js="body"]');
+const errorCard = createErrorMessage();
+body.append(errorCard);
 
 async function fetchCharacters(page, searchQuery = "") {
   cardContainer.innerHTML = "";
+  body.classList.remove("error");
+  navigation.classList.remove("hidden");
   let fetchUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`;
   const response = await fetch(fetchUrl);
   if (response.ok) {
@@ -67,8 +65,6 @@ async function fetchCharacters(page, searchQuery = "") {
     maxPage = 1;
     page = 1;
     pagination.textContent = `${page} / ${maxPage}`;
-    const errorCard = createErrorMessage();
-    body.append(errorCard);
     body.classList.add("error");
     navigation.classList.add("hidden");
   }
@@ -80,4 +76,12 @@ function updateNavigation() {
   pagination.textContent = `${page} / ${maxPage}`;
   prevButton.disabled = page == 1;
   nextButton.disabled = page == maxPage;
+}
+
+function onSearch(event) {
+  event.preventDefault();
+  searchQuery = searchBarInput.value;
+
+  fetchCharacters(page, searchQuery);
+  return searchQuery;
 }

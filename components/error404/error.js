@@ -1,6 +1,6 @@
 export function createErrorMessage() {
   const errorMessage = document.createElement("div");
-  errorMessage.classList.add("background-img");
+  errorMessage.classList.add("background-img", "error-card");
   errorMessage.innerHTML = `
    
     <div class="space"></div>
