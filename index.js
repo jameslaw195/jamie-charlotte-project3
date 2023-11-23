@@ -62,6 +62,9 @@ async function fetchCharacters(page, searchQuery = "") {
     });
   } else {
     console.log("Bad Response");
+    maxPage = 1;
+    page = 1;
+    updateNavigation();
   }
   updateNavigation();
 }
