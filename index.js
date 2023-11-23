@@ -61,7 +61,6 @@ async function fetchCharacters(page, searchQuery = "") {
     });
     updateNavigation();
   } else {
-    console.log("Bad Response");
     maxPage = 1;
     page = 1;
     pagination.textContent = `${page} / ${maxPage}`;

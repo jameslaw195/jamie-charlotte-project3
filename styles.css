@@ -24,7 +24,7 @@ body {
   display: grid;
   justify-items: center;
   gap: 10px;
-  cursor: url("/assets/pickle_rick_cursor_32x32.png"), auto;
+  cursor: url("assets/pickle_rick_cursor_32x32.png"), auto;
 }
 
 main {
