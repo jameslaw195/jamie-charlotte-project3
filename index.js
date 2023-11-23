@@ -36,6 +36,10 @@ async function fetchCharacters() {
   // }
 }
 
+
+
+fetchCharacters();
+  
 function updateNavigation() {
   pagination.textContent = `${page} / ${maxPage}`;
   prevButton.disabled = page == 1;
@@ -61,3 +65,8 @@ prevButton.addEventListener("click", () => {
   }
   fetchCharacters();
 });
+
+searchBar.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formElements = e.target.elements;
+  searchQuery = formElements.query.value;
