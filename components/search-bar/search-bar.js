@@ -7,6 +7,7 @@ export function createSearchBar(onSubmit) {
    name="query"
    class="search-bar__input"
    type="text"
+   autofocus="off"
    placeholder="search characters"
    aria-label="character name"
     />
