@@ -31,51 +31,50 @@ body.error .error-card {
   width: 90%;
   text-align: center;
   z-index: 4;
+}
+span {
+  &:first-letter {
+    letter-spacing: 12vmax;
+  }
+  position: relative;
+  color: #fff;
+  font-weight: 900;
+  font-size: 11em;
+  overflow: hidden;
+  width: 90%;
+  height: max-content;
+  &:before {
+    content: "";
+    background-image: url("https://staticdelivery.nexusmods.com/mods/1151/images/528-0-1447526230.png");
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation: rotateIn 0.5s ease-out;
+  }
+}
+p {
+  text-align: center;
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 0;
+  line-height: 22px;
+}
 
-  span {
-    &:first-letter {
-      letter-spacing: 12vmax;
-    }
-    position: relative;
-    color: #fff;
-    font-weight: 900;
-    font-size: 11em;
-    overflow: hidden;
-    width: 90%;
-    height: max-content;
-    &:before {
-      content: "";
-      background-image: url("https://staticdelivery.nexusmods.com/mods/1151/images/528-0-1447526230.png");
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      animation: rotateIn 0.5s ease-out;
-    }
-  }
-  p {
-    text-align: center;
-    font-style: italic;
-    font-weight: 400;
-    color: #fff;
-    margin-top: 0;
-    line-height: 22px;
-  }
-
-  .errorbutton {
-    background-color: var(--color-secondary);
-    border: 0;
-    padding: 11px 22px;
-    border-radius: 50px;
-    color: var(--color-primary);
-    margin-top: 10px;
-    cursor: pointer;
-    font-weight: 900;
-    text-decoration: none;
-    display: inline-block;
-  }
+.errorbutton {
+  background-color: var(--color-secondary);
+  border: 0;
+  padding: 11px 22px;
+  border-radius: 50px;
+  color: var(--color-primary);
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-block;
 }
 
 @keyframes spin {

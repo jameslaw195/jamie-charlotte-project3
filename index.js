@@ -64,6 +64,7 @@ async function fetchCharacters(page, searchQuery = "") {
     maxPage = 1;
     page = 1;
     pagination.textContent = `${page} / ${maxPage}`;
+    cardContainer.innerHTML = "";
     body.classList.add("error");
     navigation.classList.add("hidden");
   }
